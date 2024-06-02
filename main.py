@@ -14,6 +14,8 @@ JOIN
 WHERE 
     CREDIT.BALANCE > 1000"""
 
+SQL_ST1 = "SELECT * FROM CLIENT"
+
 #выгрузка в csv
-export_csv(SQL_ST, connecting_to_db())
+export_csv(SQL_ST1, connecting_to_db())
 

@@ -2,7 +2,7 @@ from tables import *
 from connecting_to_db import *
 
 
-def ops_tables(connect,sql_st_table):
+def ops_tables(connect, sql_st_table):
     #создание курсора
     cursor_db = connect.cursor()
     try:
@@ -15,9 +15,8 @@ def ops_tables(connect,sql_st_table):
         connect.close()
 
 
-#создание и добавление данных
+#создание таблиц
 for op in creating_ops:
     ops_tables(connecting_to_db(), op)
 
-for op in inserting_ops:
-    ops_tables(connecting_to_db(), op)
+

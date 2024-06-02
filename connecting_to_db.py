@@ -10,6 +10,3 @@ def connecting_to_db():
     else:
         return conn_db
         print('Connected to database')
-
-
-
