@@ -1,7 +1,7 @@
 from tables import *
 from connecting_to_db import *
 
-
+#удаление таблиц
 def deleting_tables(connect):
     cursor_db = connect.cursor()
     try:

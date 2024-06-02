@@ -2,22 +2,22 @@ from tables import *
 from connecting_to_db import *
 
 
-def create_tables(connect,sql_st_table1, sql_st_table2, sql_st_table3):
+def ops_tables(connect,sql_st_table):
+    #создание курсора
     cursor_db = connect.cursor()
     try:
-        cursor_db.execute(sql_create_table_client)
-        cursor_db.execute(sql_create_table_credit)
-        cursor_db.execute(sql_create_table_relation)
+        cursor_db.execute(sql_st_table)
     except Exception as err:
-        print('Error with creating tables:', err)
+        print('Error with ops with tables:', err)
+    finally:
+        #закрытие курсора и коннекшна
+        cursor_db.close()
+        connect.close()
 
-def insert_data_into_tables(connect):
-    cursor_db = connect.cursor()
-    try:
-        cursor_db.execute(inserting_data_client)
-        cursor_db.execute(inserting_data_credit)
-        cursor_db.execute(inserting_data_relation)
-    except Exception as err:
-        print('Error with inserting data tables:', err)
 
-#create_tables(connect, sql_create_table_client, sql_create_table_credit,sql_create_table_relation)
+#создание и добавление данных
+for op in creating_ops:
+    ops_tables(connecting_to_db(), op)
+
+for op in inserting_ops:
+    ops_tables(connecting_to_db(), op)

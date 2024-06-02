@@ -1,3 +1,5 @@
+#sql запросы для создания и наполнения таблиц
+
 sql_create_table_client = """
 CREATE TABLE CLIENT(
     ID NUMBER PRIMARY KEY,
@@ -26,6 +28,8 @@ CREATE TABLE RELATION(
 )
 """
 
+creating_ops = (sql_create_table_credit, sql_create_table_client, sql_create_table_client)
+
 inserting_data_client = """
 INSERT INTO 
     CLIENT (ID, FIRST_NAME, LAST_NAME, MIDDLE_NAME) 
@@ -45,3 +49,5 @@ INSERT INTO
 VALUES 
     (1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), (5, 5, 5)
 """
+
+inserting_ops = (inserting_data_relation, inserting_data_client, inserting_data_relation)
